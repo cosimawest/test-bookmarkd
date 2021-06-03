@@ -18,6 +18,9 @@
   src: url("./assets/Poppins-Medium.ttf");
 }
 
+* {
+  scroll-margin-top: 8rem;
+}
 
 html {
   font-size: 100%;
@@ -27,6 +30,27 @@ html {
   text-align: left;
   color: #0C572C;
   font-family: "Poppins Regular";
+}
+
+.semibold {
+  font-family: "Poppins SemiBold";
+}
+
+.bold {
+  font-family: "Poppins Bold";
+}
+
+.right {
+  text-align: end;
+}
+
+.flex-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.center-img {
+  vertical-align: sub;
 }
 
 h1 {
@@ -71,11 +95,17 @@ h2[class~="dropshadow"]{
 a {
   font-family: "Poppins Bold";
   color: #0FC662;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 p {
   font-size: 1.25rem;
   margin: 0;
+}
+
+.tiny-text {
+  font-size: .75rem;
 }
 
 input {
@@ -96,8 +126,13 @@ button {
   margin: 1rem 0;
 }
 
+button:hover {
+  filter: brightness(95%);
+  cursor: pointer;
+}
+
 .btn-mini {
-  margin: 0;
+  margin: 1rem 0 0;
   padding: .5rem 1rem;
   font-size: 1rem;
   box-shadow: none;
@@ -113,6 +148,8 @@ input {
 }
 
 .inner {
+  width: 100%;
+  width: -webkit-fill-available;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -123,9 +160,19 @@ input {
   align-items: center;
 }
 
+.inline {
+  display: flex;
+  align-items: center;
+}
+
 .dark-link {
   color: #0C572C;
   font-family: 'Poppins Bold';
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 hr {
@@ -137,6 +184,20 @@ hr {
   position: absolute;
   top: -2rem;
   right: -9rem;
+  z-index: -1;
+}
+
+.bubble-top-left {
+  position: absolute;
+  top: 8rem;
+  left: 0;
+  z-index: -1;
+}
+
+.bubble-bottom-right {
+  position: absolute;
+  bottom: 9rem;
+  right: 0;
   z-index: -1;
 }
 
@@ -156,4 +217,38 @@ div::-webkit-scrollbar {
   text-decoration: none;
   color: inherit;
   font-family: inherit;
+}
+
+.empty-state-div {
+  padding: 3% 0 7%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-state-title {
+  color: #6C6C6C;
+  margin: 0 auto 4%;
+}
+
+.review-card {
+  width: 14rem;
+  margin: 1rem auto;
+  background-color: white;
+  border-radius: 2rem;
+  padding: 2.5rem 1.5rem 6rem;
+  position: relative;
+}
+
+.review-card-title {
+  padding-bottom: .75rem;
+  color: #0FC662;
+  font-size: 1.25rem;
+  font-family: 'Poppins SemiBold';
+}
+
+.review-card-bubble {
+  position: absolute;
+  right: 1rem;
 }

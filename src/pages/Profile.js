@@ -18,7 +18,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 
 
-import NoMessages from '../assets/no-messages-icon.svg';
+import Bubble from '../assets/bubble-icon-06.svg';
 import TextbookImage from '../assets/test-textbook-image.png';
 
 
@@ -37,7 +37,6 @@ function Profile() {
 
   return (
     <div className="profile">
-        <NavBar/>
         <div className="profile-inner">
         <div className="spacer"></div>
 
@@ -96,62 +95,27 @@ function Profile() {
                             textbookSelected={textbookSelected}
                             setTextbookSelected={setTextbookSelected}
                         />
-
-                        <BookCard
-                            image={TextbookImage}
-                            title={"Structures or Why Things Don't Fall Down"}
-                            author={"Brian Christan"}
-                            price={"$50"}
-                            textbookSelected={textbookSelected}
-                            setTextbookSelected={setTextbookSelected}
-                        />
-
-                        <BookCard
-                            image={TextbookImage}
-                            title={"Structures or Why Things Don't Fall Down"}
-                            author={"Brian Christan"}
-                            price={"$50"}
-                            textbookSelected={textbookSelected}
-                            setTextbookSelected={setTextbookSelected}
-                        />
-
-                        <BookCard
-                            image={TextbookImage}
-                            title={"Structures or Why Things Don't Fall Down"}
-                            author={"Brian Christan"}
-                            price={"$50"}
-                            textbookSelected={textbookSelected}
-                            setTextbookSelected={setTextbookSelected}
-                        />
-
-                        <BookCard
-                            image={TextbookImage}
-                            title={"Structures or Why Things Don't Fall Down"}
-                            author={"Brian Christan"}
-                            price={"$50"}
-                            textbookSelected={textbookSelected}
-                            setTextbookSelected={setTextbookSelected}
-                        />
-
-                        <BookCard
-                            image={TextbookImage}
-                            title={"Structures or Why Things Don't Fall Down"}
-                            author={"Brian Christan"}
-                            price={"$50"}
-                            textbookSelected={textbookSelected}
-                            setTextbookSelected={setTextbookSelected}
-                        />
                     </div>
 
                     <div className="user-profile-content-title">Reviews</div>
                     <hr/>
+
+                    <div className="book-card__container-small">
+                        <div className="review-card">
+                            <div className="review-card-title">Amanda '23 says:</div>
+                            <div>“Michael was a great seller. He always answered my messages on time and was really understanding when trying to arrange a time to meet up. I would definitely buy from him again!”</div>
+                            <img className="review-card-bubble" src={Bubble}/>
+                        </div>
+
+                    </div>
                 </div>
             </div>
+            <Footer/>
+
         </div>
-        
+
         
         </div>
-        <Footer/>
     </div>
   );
 }

@@ -22,15 +22,19 @@ import ArrangePickUpIcon from '../assets/arrange-pick-up-icon.svg';
 import CampusConnectionIcon from '../assets/campus-connection-icon.svg';
 import EcoFriendlyIcon from '../assets/eco-friendly-icon.svg';
 import AffordableIcon from '../assets/affordable-icon.svg';
-
+import ThanksContactImg from '../assets/contact-submit-img.svg';
 import BubbleIcon02 from '../assets/bubble-icon-02.svg';
 
 import QuoteIcon from '../assets/quote-icon.svg';
 
 
 
-function Home() {
+function Home(props) {
     const [x, setX] = useState(true);
+    const [submitted, setSubmitted] = useState(false);
+
+
+    console.log(props.mode)
 
 
     const soldCheckbox = ({ target: { checked } }) => {
@@ -40,7 +44,6 @@ function Home() {
 
     return (
         <div className="home">
-            <NavBar/>
             <div className="spacer">&nspb;</div>
             
             <div className="welcome-section"> 
@@ -52,12 +55,79 @@ function Home() {
                         <div className="welcome-section-text__inner">
                             <h1>Peer-to-Peer College <span style={{fontFamily: 'Poppins Bold'}}>Textbook Marketplace</span></h1>
                             <p>Buy and sell your textbook materials right on your college campus</p>
-                            <SearchBar/>
+                            {/* { props.mode === "home" ?  */}
+                                <SearchBar/>
+                            {/* :
+                            <div>
+                                {props.mode === "signup" ?
+                                <div className="login-container">
+                                    <div className="login-header">
+                                            <div className="login-option selected">Sign Up</div>
+                                            <div className="login-option"  onClick={() => props.setMode("login")}>Log In</div>
+                                    </div>
+                                    <div className="login-inputs">
+                                        <div className="side-by-side">
+                                            <input 
+                                                type="text"
+                                                placeholder="Full name"
+                                                className="half-login-input"
+                                            />
+                                            <input 
+                                                type="text"
+                                                placeholder=".edu email"
+                                                className="half-login-input"
+                                                />
+                                        </div>
+                                        <input 
+                                            
+                                            type="textarea"
+                                            placeholder="Password"
+                                            className="login-input"
+                                        />
+                                        <input 
+                                            type="textarea"
+                                            placeholder="Confirm password"
+                                            className="login-input"
+                                        />
+                                        <div className="button-holder">
+                                            <button onClick={() => props.setLoggedIn(true)}>Create Account</button>
+                                            <div><a>Privacy Policy</a> & <a>Terms of Service Agreement</a></div>
+                                        </div>
+                                    </div>                            
+                                </div> 
+                                :
+                                <div className="login-container">
+                                    <div className="login-header">
+                                            <div className="login-option" onClick={() => props.setMode("signup")}>Sign Up</div>
+                                            <div className="login-option selected">Log In</div>
+                                    </div>
+                                    <div className="login-inputs">
+                                        <input 
+                                            
+                                            type="textarea"
+                                            placeholder=".edu email"
+                                            className="login-input"
+                                        />
+                                        <input 
+                                            type="textarea"
+                                            placeholder="Password"
+                                            className="login-input"
+                                        />
+                                        <div className="button-holder">
+                                            <button onClick={() => props.setLoggedIn(true)}>Log In</button>
+                                            <div>I forgot my username/password</div>
+                                        </div>
+                                    </div> 
+                                </div>
+                                }
+                            </div>
+                            } */}
+
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="home-it-works" className="how-it-works">
+            <div id="how-it-works" className="how-it-works">
                 <div className="how-it-works__inner inner">
                     <h2>How it <span style={{fontFamily: 'Poppins Bold'}}>Works</span></h2>
                     <p>We’ve made sure our services are secure and simple. We require that all members sign up with .edu emails only and set up two-step verification. We only charge <span style={{fontFamily: 'Poppins Bold'}}>10% per transaction</span> on the platform, so you can be sure to save most of your earnings.</p>
@@ -127,8 +197,8 @@ function Home() {
 
             <div id="contact-us" className="contact-us">
                 <div className="welcome-section__inner inner">      
-                    
-                    <div className="welcome-section-text__container">
+                    {!submitted ? 
+                    <div className="contact-us-form__container">
                         <form className="contact-us-form">
                             <h4>We want to hear from you!</h4>
                             <p>Fill out this form to get in touch with us. We will respond as soon as we can!</p>
@@ -150,18 +220,34 @@ function Home() {
                                 <option value="two">Choice 2</option>
                             </select>
                             <input 
+                                style={{margin:"1rem .5rem"}}
                                 type="textarea"
                                 placeholder="How can we help you?"
                                 className="search-bar__container"
                             />
                             <div className="contact-us__button-container">
-                                <button className="contact-us__button">Submit</button>
+                                <button className="contact-us__button" onClick={() => setSubmitted(true)}>Submit</button>
                             </div>
                         </form>
                     </div>
-                    <div className="welcome-section-image__container">
-                        <img className="welcome-section-image" src={BubbleIcon02}/>
+                    :
+                    <div className="welcome-section-text__container contact-us-thanks inner">
+                        <div>
+                            <h3>Thank you for contacting us!</h3>
+                            <div className="contact-us-thanks-inner">
+                                <img src={ThanksContactImg}/>
+                                <div>
+                                    <p>We will respond to your message as soon as possible. In the meantime, feel free to read through our FAQ page to see if that answers any of your other concerns. </p>
+                                    <a href="/faq">View FAQs</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    }
+                    
+                </div> 
+                <div className="bubble-contact-form">
+                    <img className="welcome-section-image" src={BubbleIcon02}/>
                 </div>
             </div>
             <Footer/>

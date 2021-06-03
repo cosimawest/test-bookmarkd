@@ -16,7 +16,6 @@ function YourBackpack() {
 
   return (
     <div className="your-backpack">
-        <NavBar/>
 
         <div className="spacer">&nspb;</div>
 

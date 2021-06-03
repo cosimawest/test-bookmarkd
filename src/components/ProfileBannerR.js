@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import '../pages/style.css';
 
-import StarBorderIcon from '@material-ui/icons/StarBorder';
+import ProfilePic from '../assets/temp-profile.png';
 
 
 function ProfileBannerR(props) {
@@ -12,7 +12,7 @@ function ProfileBannerR(props) {
     <div className="profile-top">
         <div className="profile-top__inner inner">
             <div className="user-profile-icon__container">
-                <div className="user-profile-icon"></div>
+                <img className="user-profile-icon" src={ProfilePic}/>
             </div>
 
             <div className="profile-title">

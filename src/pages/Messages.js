@@ -34,7 +34,6 @@ function Messages() {
 
   return (
     <div className="messages">
-        <NavBar/>
 
         <div className="spacer">&nspb;</div>
 
@@ -169,51 +168,6 @@ function Messages() {
 
                         <div className="message-bubble__sent">
                             <div className="message-bubble">Hi Megan, I have accepted your offer. Please let me know when you are willing to meet up so I can deliver the book.</div>
-                            <div className="pointer"></div>
-                        </div>
-                        
-                        <div className="message-bubble__sent">
-                            <div className="message-bubble">Hi Megan, I have accepted your offer. Please let me know when you are willing to meet up so I can deliver the book.</div>
-                            <div className="pointer"></div>
-                        </div>
-
-                        <div className="message-bubble__sent">
-                            <div className="message-bubble">Hi Megan, I have accepted your offer. Please let me know when you are willing to meet up so I can deliver the book.</div>
-                            <div className="pointer"></div>
-                        </div>
-
-                        <div className="message-bubble__received">
-                            <div className="message-bubble">My offer is: $35.00</div>
-                            <div className="pointer"></div>
-                        </div>
-
-                        <div className="message-bubble__received">
-                            <div className="message-bubble">My offer is: $35.00</div>
-                            <div className="pointer"></div>
-                        </div>
-
-                        <div className="message-bubble__received">
-                            <div className="message-bubble">My offer is: $35.00</div>
-                            <div className="pointer"></div>
-                        </div>
-
-                        <div className="message-bubble__received">
-                            <div className="message-bubble">My offer is: $35.00</div>
-                            <div className="pointer"></div>
-                        </div>
-
-                        <div className="message-bubble__received">
-                            <div className="message-bubble">My offer is: $35.00</div>
-                            <div className="pointer"></div>
-                        </div>
-
-                        <div className="message-bubble__received">
-                            <div className="message-bubble">My offer is: $35.00</div>
-                            <div className="pointer"></div>
-                        </div>
-
-                        <div className="message-bubble__received">
-                            <div className="message-bubble">My offer is: $35.00</div>
                             <div className="pointer"></div>
                         </div>
                     </div>

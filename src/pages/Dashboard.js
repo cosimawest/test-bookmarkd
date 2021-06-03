@@ -29,7 +29,6 @@ import RecentlyViewedIcon from '../assets/recently-viewed-icon.svg';
 
 
 
-
 const profile = {
     "year": 22,
     "name": "Michael",
@@ -45,7 +44,6 @@ function Dashboard() {
 
   return (
     <div className="profile">
-        <NavBar/>
         <div className="profile-inner">
         <div className="spacer"></div>
 
@@ -65,55 +63,54 @@ function Dashboard() {
 
             <div className="profile-bottom__inner inner">
                 <div className="user-profile-info">
-                    <div>Personal Info</div>
+                    <a className="dark-link"  href="/dashboard/personal-info">Personal Info</a>
                     <hr/>
-                    <div>Security</div>
+                    <a className="dark-link" href="/dashboard/security">Security</a>
                     <hr/>
-                    <div>Payment Info</div>
+                    <a className="dark-link" href="/dashboard/payment-info">Payment Info</a>
                     <hr/>
                 </div>
                 <div className="user-profile-content">
                     <div className="book-card__container">
-                        <div className="dashboard-card">
+                        <a className="dashboard-card none" href="/dashboard/orders">
                             <h5>Your Orders</h5>
                             <img src={YourOrdersIcon}/>
-                        </div>
-                        <div className="dashboard-card">
+                        </a>
+                        <a className="dashboard-card none" href="/messages">
                             <h5>Inbox</h5>
                             <img src={InboxIcon}/>
-                        </div>
-                        <div className="dashboard-card">
+                        </a>
+                        <a className="dashboard-card none" href="/dashboard/listings">
                             <h5>Your Listings</h5>
                             <img src={YourListingsIcon}/>
-                        </div>
-                        <div className="dashboard-card">
+                        </a>
+                        <a className="dashboard-card none" href="/dashboard/notifs">
                             <h5>Notifications</h5>
                             <img src={NotifsIcon}/>
-                        </div>
-                        <div className="dashboard-card">
+                        </a>
+                        <a className="dashboard-card none" href="/dashboard/ratings">
                             <h5>Your Ratings</h5>
                             <img src={YourRatingsIcon}/>
-                        </div>
-                        <div className="dashboard-card">
+                        </a>
+                        <a className="dashboard-card none" href="/dashboard/bookmarks">
                             <h5>Your Bookmarks</h5>
                             <img src={YourBookmarksIcon}/>
-                        </div>
-                        <div className="dashboard-card">
+                        </a>
+                        <a className="dashboard-card none" href="/dashboard/following">
                             <h5>Following</h5>
                             <img src={FollowingIcon}/>
-                        </div>
-                        <div className="dashboard-card">
+                        </a>
+                        <a className="dashboard-card none" href="/dashboard/recently-viewed">
                             <h5>Recently Viewed</h5>
                             <img src={RecentlyViewedIcon}/>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
+            <Footer/>
+
         </div>
-        
-        
         </div>
-        <Footer/>
     </div>
   );
 }

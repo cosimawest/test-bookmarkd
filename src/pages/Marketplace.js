@@ -72,7 +72,6 @@ function Marketplace() {
             </Popup>
         )}
 
-        <NavBar/>
 
         <div className="spacer">&nspb;</div>
         <div className="marketplace-title">

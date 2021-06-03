@@ -24,17 +24,18 @@ function NavBar() {
           {/* <MenuIcon/> */}
           <Dropdown title={<MenuIcon/>}>
             <div className="drop-down__container navbar-dropdown">
+              <div className="dropdown-header"></div>
               <div>
-              <Link>How it Works</Link>
+              <Link className="dark-link" onClick={() => document.getElementById('how-it-works').scrollIntoView({behavior: "smooth"})}>How it Works</Link>
               </div>
               <div>
-              <Link>Our Mission</Link>
+              <Link className="dark-link" onClick={() => document.getElementById('our-mission').scrollIntoView({behavior: "smooth"})}>Our Mission</Link>
+              </div>
+              <div>
+              <Link className="dark-link" onClick={() => document.getElementById('contact-us').scrollIntoView({behavior: "smooth"})}>Contact Us</Link>
               </div>
               <div>
               <Link to='/marketplace'>Marketplace</Link>
-              </div>
-              <div>
-              <Link>Contact Us</Link>
               </div>
             </div>
           </Dropdown>
@@ -48,13 +49,13 @@ function NavBar() {
         </div>
 
         <div>
-          <Link to='#'>
+          <Link to='/dashboard/bookmarks'>
             <img src={BookmarkIcon}/>
           </Link>
           <Link to='/your-backpack'>
             <img src={BackpackIcon}/>
           </Link>
-          <Link to='/messages'>
+          <Link to='/dashboard/notifs'>
             <img src={BellIcon}/>
           </Link>
           <Link to='/dashboard'>
