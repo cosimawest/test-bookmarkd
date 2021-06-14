@@ -98,7 +98,7 @@ function YourListings() {
                         <div className="dashboard-selection-item" id="past" onClick={(e) => toggleSelectionBar(e.target.id)}>Past</div>
                     </div>    
 
-                    <a>New listing <img src={AddListingIcon} className="center-img"/></a>   
+                    <a href="/new-listing">New listing <img src={AddListingIcon} className="center-img"/></a>   
                 </div>            
             </div>
         </div>

@@ -14,7 +14,7 @@ import EmptyState from '../assets/orders-empty-state.svg';
 
 function YourOrders() {
     const [selectedItem, setSelectedItem] = useState("orders");
-    const empty = true; // temp variable to switch between empty and non-empty states of this page
+    const empty = false; // temp variable to switch between empty and non-empty states of this page
 
 
     const toggleSelectionBar = (target) => {
@@ -74,7 +74,6 @@ function YourOrders() {
                                     <p className="right">$50.00</p>
                                     <div>
                                         <button className="sign-up-button btn-mini">View item</button>
-                                        <button className="log-in-button btn-mini">Change order</button>
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +93,6 @@ function YourOrders() {
                                     <p className="right">$50.00</p>
                                     <div>
                                         <button className="sign-up-button btn-mini">View item</button>
-                                        <button className="log-in-button btn-mini">Change order</button>
                                     </div>
                                 </div>
                             </div>

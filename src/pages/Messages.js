@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import '../pages/style.css';
 import '../App.css';
@@ -31,6 +31,14 @@ function Messages() {
     console.log(x, checked);
     setX(checked);
   };
+
+  useEffect(() => {
+    
+    var element = document.getElementById("messages");
+    element.scrollTop = element.scrollHeight - element.clientHeight;
+  });
+
+
 
   return (
     <div className="messages">
@@ -65,7 +73,6 @@ function Messages() {
                                 <div className="inbox-slider-title"> With Buyers</div>
                             </span>
                         </label>
-                        <div>Send Messages</div>
                     </div>
                     <hr className="message-slider-hr"/>
                 </div>
@@ -160,7 +167,7 @@ function Messages() {
                     <div className="recipient-label">To:</div>
                     <div className="recipient-name"> @username060</div>
                 </div>
-                    <div className="messages-container">
+                    <div className="messages-container" id="messages">
                         <div className="message-bubble__received">
                             <div className="message-bubble">My offer is: $35.00</div>
                             <div className="pointer"></div>
@@ -170,6 +177,7 @@ function Messages() {
                             <div className="message-bubble">Hi Megan, I have accepted your offer. Please let me know when you are willing to meet up so I can deliver the book.</div>
                             <div className="pointer"></div>
                         </div>
+                        
                     </div>
 
 
@@ -217,15 +225,15 @@ function Messages() {
                     <div className="details-title">Seller Details:</div>
 
                     <div className="seller-details__container">
-                        <a className="profile-banner__container none" href="/profile">
+                        <div className="profile-banner__container none">
                             <div className="profile-icon-large">&nbsp;</div>
                             <div>
-                                <div className="profile-banner__name">Megan '22</div>
+                                <a href="/profile/0" className="profile-banner__name none">Megan '22</a>
                                 <div className="profile-banner__username">@megan</div>
                                 <div className="profile-banner__school">University of Floria</div>
                                 <div className="profile-banner__major mini">Major: Psychology</div>
                             </div>
-                        </a>
+                        </div>
                         <div className="seller-rating">
                             <div className="mini">Seller Rating:</div>
                             <div className="mini">

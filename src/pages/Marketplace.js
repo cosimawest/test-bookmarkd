@@ -1,28 +1,47 @@
 import React, { useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 
 import '../pages/style.css';
 import '../App.css';
 
-import NavBar from '../components/NavBarTwo.js';
 import BookCard from '../components/BookCard.js';
 import Dropdown from '../components/Dropdown.js';
 import Popup from '../components/Popup.js';
 import Footer from '../components/Footer.js';
 
 
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-import BookmarkIcon from '@material-ui/icons/Bookmark';
-import BackpackIcon from '../assets/backpack-icon.svg';
+
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import SearchIcon from '@material-ui/icons/Search';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import ReportProblemOutlinedIcon from '@material-ui/icons/ReportProblemOutlined';
 
 import TextbookImage from '../assets/test-textbook-image.png';
+const Listings = require('../data/Listings.json');
+
 
 
 function Marketplace() {
   const [textbookSelected, setTextbookSelected] = useState(false);
-  const [marked, setMarked] = useState(false);
+  const [popupType, setPopupType] = useState("quickview");
+
+
+    
+  const showBookCards = () => {
+      return (
+        Listings.Listings.map((item) => (
+            <BookCard
+                id={item.id}
+                image={TextbookImage}
+                title={item.title}
+                author={item.author}
+                price={item.price}
+                textbookSelected={textbookSelected}
+                setTextbookSelected={setTextbookSelected}
+            />   
+        ))
+      );
+  }
 
 
   return (
@@ -32,44 +51,10 @@ function Marketplace() {
             <Popup
                 isOpen={textbookSelected}
                 setIsOpen={setTextbookSelected}
-            >
-                <div className="quick-view">
-                { marked ? <BookmarkIcon className="bookmark-icon" onClick={() => setMarked(!marked)}/> : <BookmarkBorderIcon className="bookmark-icon" onClick={() => setMarked(!marked)}/> }
-
-                    <div className="image-container quick-view__img">
-                        <img className="contain-img" src={TextbookImage}/>
-                    </div>
-
-                    <div className="quick-view__content-wrapper">
-                        <div className="location-marker">location</div>
-                        <div className="">
-                            <div className="book-title">Algorithms to Live By</div>
-                            <div className="book-subtitle">The Computer Science of Human Decisions</div>
-                        </div>
-                        <div className="">
-                            <div className="book-edition">1st Edition</div>
-                            <div className="book-author">Authors: Brian Christian, Tom Griffiths</div>
-                            <div className="book-isbn">ISBN: 2983520357035</div>
-                        </div>
-                        <div className="side-by-side">
-                            <div className="book-condition">“Book is in good condition, used once. Great for any cognitive psychology classes.”</div>
-                            <a className="message-seller__link" href="/messages">Message Seller</a>
-                        </div>
-                        <div className="popup-last-element side-by-side">
-                            <div className="book-title">$50.00</div>
-                            <div>
-                                <button className="mini-btn-medium add-to-btn">
-                                    <div className="side-by-side">
-                                        <div className="add-to-btn-text">Add To</div>
-                                        <img src={BackpackIcon}/>
-                                    </div>
-                                </button>
-                                <a className="log-in-button">Make an Offer</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </Popup>
+                type={popupType}
+                setPopupType={setPopupType}
+                listing={Listings.Listings[textbookSelected-1]}
+            />  
         )}
 
 
@@ -117,14 +102,14 @@ function Marketplace() {
                         </div>
 
                         <div className="filter-item">
-                            <input name="price" type="checkbox"/>
-                            <label for="price">Distance</label>
+                            <input id="distance" name="distance" type="checkbox"/>
+                            <label for="distance">Distance</label>
                         </div>
                     </div>
                 </Dropdown>
 
                 <Dropdown title={<div style={{display: "flex"}}>Sort By <ExpandMoreIcon/></div>}>
-                    <div className="drop-down__container">
+                    <div className="drop-down__container drop-down-right">
                         <div>Relevance</div>
                         <div>Price Low to High</div>
                         <div>Price High to Low</div>
@@ -134,86 +119,7 @@ function Marketplace() {
             </div>
 
             <div className="book-card__container">
-                <BookCard
-                    image={TextbookImage}
-                    title={"Structures or Why Things Don't Fall Down"}
-                    author={"Brian Christan"}
-                    price={"$50"}
-                    textbookSelected={textbookSelected}
-                    setTextbookSelected={setTextbookSelected}
-                />
-
-                <BookCard
-                    image={TextbookImage}
-                    title={"Structures or Why Things Don't Fall Down"}
-                    author={"Brian Christan"}
-                    price={"$50"}
-                    textbookSelected={textbookSelected}
-                    setTextbookSelected={setTextbookSelected}
-                />
-
-                <BookCard
-                    image={TextbookImage}
-                    title={"Structures or Why Things Don't Fall Down"}
-                    author={"Brian Christan"}
-                    price={"$50"}
-                    textbookSelected={textbookSelected}
-                    setTextbookSelected={setTextbookSelected}
-                />
-
-                <BookCard
-                    image={TextbookImage}
-                    title={"Structures or Why Things Don't Fall Down"}
-                    author={"Brian Christan"}
-                    price={"$50"}
-                    textbookSelected={textbookSelected}
-                    setTextbookSelected={setTextbookSelected}
-                />
-
-                <BookCard
-                    image={TextbookImage}
-                    title={"Structures or Why Things Don't Fall Down"}
-                    author={"Brian Christan"}
-                    price={"$50"}
-                    textbookSelected={textbookSelected}
-                    setTextbookSelected={setTextbookSelected}
-                />
-
-                <BookCard
-                    image={TextbookImage}
-                    title={"Structures or Why Things Don't Fall Down"}
-                    author={"Brian Christan"}
-                    price={"$50"}
-                    textbookSelected={textbookSelected}
-                    setTextbookSelected={setTextbookSelected}
-                />
-
-                <BookCard
-                    image={TextbookImage}
-                    title={"Structures or Why Things Don't Fall Down"}
-                    author={"Brian Christan"}
-                    price={"$50"}
-                    textbookSelected={textbookSelected}
-                    setTextbookSelected={setTextbookSelected}
-                />
-
-                <BookCard
-                    image={TextbookImage}
-                    title={"Structures or Why Things Don't Fall Down"}
-                    author={"Brian Christan"}
-                    price={"$50"}
-                    textbookSelected={textbookSelected}
-                    setTextbookSelected={setTextbookSelected}
-                />
-
-                <BookCard
-                    image={TextbookImage}
-                    title={"Structures or Why Things Don't Fall Down"}
-                    author={"Brian Christan"}
-                    price={"$50"}
-                    textbookSelected={textbookSelected}
-                    setTextbookSelected={setTextbookSelected}
-                />
+                {showBookCards()}
             </div>
 
         </div>

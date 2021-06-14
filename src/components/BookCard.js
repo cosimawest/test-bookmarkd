@@ -11,7 +11,7 @@ function BookCard(props) {
   return (
     <div className="book-card">
       { marked ? <BookmarkIcon className="bookmark-icon" onClick={() => setMarked(!marked)}/> : <BookmarkBorderIcon className="bookmark-icon" onClick={() => setMarked(!marked)}/> }
-      <div onClick={() => props.setTextbookSelected(!props.textbookSelected)}>
+      <div onClick={() => props.setTextbookSelected(props.id)}>
       <div className="image-container">
           <img className="contain-img" src={props.image}/>
       </div>
@@ -20,7 +20,7 @@ function BookCard(props) {
       <div className="author">{props.author}</div>
 
       <div className="add-info">
-          <div className="price">{props.price}</div>
+          <div className="price">${props.price}</div>
           <button className="btn-mini">Quickview</button>
       </div>
       </div>

@@ -12,12 +12,14 @@ import Home from './pages/Home.js';
 import LogIn from './pages/LogIn.js';
 import Marketplace from './pages/Marketplace.js';
 import YourBackpack from './pages/YourBackpack.js';
+import Checkout from './pages/Checkout.js';
 import Messages from './pages/Messages.js';
 import Profile from './pages/Profile.js';
 import Dashboard from './pages/Dashboard.js';
 import YourBookmarks from './pages/YourBookmarks.js';
 import YourFollowing from './pages/YourFollowing.js';
 import YourListings from './pages/YourListings.js';
+import NewListing from './pages/NewListing.js';
 import YourNotifs from './pages/YourNotifs.js';
 import YourOrders from './pages/YourOrders.js';
 import YourRatings from './pages/YourRatings.js';
@@ -55,6 +57,7 @@ function App() {
             <Route exact path="/log-in"     render={(props) => <LogIn mode={mode} setMode={setMode} setLoggedIn={setLoggedIn} />} />
             <Route exact path="/marketplace"    render={(props) => <Marketplace {...props} />} />
             <Route exact path="/your-backpack"    render={(props) => <YourBackpack {...props} />} />
+            <Route exact path="/checkout"    render={(props) => <Checkout {...props} />} />
             <Route exact path="/messages"    render={(props) => <Messages {...props} />} />
             <Route exact path="/profile/:id"    render={(props) => <Profile {...props} />} />
             <Route exact path="/dashboard"    render={(props) => <Dashboard {...props} />} />
@@ -76,6 +79,7 @@ function App() {
             <Route exact path="/faq"    render={(props) => <FAQ {...props} />} />
             <Route exact path="/events"    render={(props) => <Events {...props} />} />
             <Route exact path="/invite-a-friend"    render={(props) => <InviteAFriend {...props} />} />
+            <Route exact path="/new-listing"    render={(props) => <NewListing {...props} />} />
 
             <Route exact path="/">
               <Redirect to="/main-home" />

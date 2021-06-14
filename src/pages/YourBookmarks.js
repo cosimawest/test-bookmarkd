@@ -6,20 +6,50 @@ import '../App.css';
 import Footer from '../components/Footer.js';
 import NavBar from '../components/NavBarTwo.js';
 import BookCard from '../components/BookCard.js';
+import Popup from '../components/Popup.js';
 
 import BackArrow from '../assets/back-arrow.svg';
 import BubbleIcon03 from '../assets/bubble-icon-03.svg';
 import TextbookImage from '../assets/test-textbook-image.png';
 import EmptyState from '../assets/bookmarks-empty-state.svg';
 
+const Listings = require('../data/Listings.json');
+
 
 
 function YourBookmarks() {
-  const [textbookSelected, setTextbookSelected] = useState(false);
   const empty = false; // temp variable to switch between empty and non-empty states of this page
+  const [textbookSelected, setTextbookSelected] = useState(false);
+  const [popupType, setPopupType] = useState("quickview");
+
+
+    const showBookCards = () => {
+        return (
+        Listings.Listings.map((item) => (
+            <BookCard
+                id={item.id}
+                image={TextbookImage}
+                title={item.title}
+                author={item.author}
+                price={item.price}
+                textbookSelected={textbookSelected}
+                setTextbookSelected={setTextbookSelected}
+            />   
+        ))
+        );
+    }
 
   return (
     <div className="profile">
+        {textbookSelected && (
+            <Popup
+                isOpen={textbookSelected}
+                setIsOpen={setTextbookSelected}
+                type={popupType}
+                setPopupType={setPopupType}
+                listing={Listings.Listings[textbookSelected-1]}
+            />  
+        )}
 
       <div className="profile-inner">
           <div className="spacer"></div>
@@ -45,90 +75,11 @@ function YourBookmarks() {
       
       <div className="my-dashboard__second-inner">
         {!empty ? 
-          <div className="my-dashboard__inner inner">
-          <div className="book-card__container">
-                <BookCard
-                    image={TextbookImage}
-                    title={"Structures or Why Things Don't Fall Down"}
-                    author={"Brian Christan"}
-                    price={"$50"}
-                    textbookSelected={textbookSelected}
-                    setTextbookSelected={setTextbookSelected}
-                />
-
-                <BookCard
-                    image={TextbookImage}
-                    title={"Structures or Why Things Don't Fall Down"}
-                    author={"Brian Christan"}
-                    price={"$50"}
-                    textbookSelected={textbookSelected}
-                    setTextbookSelected={setTextbookSelected}
-                />
-
-                <BookCard
-                    image={TextbookImage}
-                    title={"Structures or Why Things Don't Fall Down"}
-                    author={"Brian Christan"}
-                    price={"$50"}
-                    textbookSelected={textbookSelected}
-                    setTextbookSelected={setTextbookSelected}
-                />
-
-                <BookCard
-                    image={TextbookImage}
-                    title={"Structures or Why Things Don't Fall Down"}
-                    author={"Brian Christan"}
-                    price={"$50"}
-                    textbookSelected={textbookSelected}
-                    setTextbookSelected={setTextbookSelected}
-                />
-
-                <BookCard
-                    image={TextbookImage}
-                    title={"Structures or Why Things Don't Fall Down"}
-                    author={"Brian Christan"}
-                    price={"$50"}
-                    textbookSelected={textbookSelected}
-                    setTextbookSelected={setTextbookSelected}
-                />
-
-                <BookCard
-                    image={TextbookImage}
-                    title={"Structures or Why Things Don't Fall Down"}
-                    author={"Brian Christan"}
-                    price={"$50"}
-                    textbookSelected={textbookSelected}
-                    setTextbookSelected={setTextbookSelected}
-                />
-
-                <BookCard
-                    image={TextbookImage}
-                    title={"Structures or Why Things Don't Fall Down"}
-                    author={"Brian Christan"}
-                    price={"$50"}
-                    textbookSelected={textbookSelected}
-                    setTextbookSelected={setTextbookSelected}
-                />
-
-                <BookCard
-                    image={TextbookImage}
-                    title={"Structures or Why Things Don't Fall Down"}
-                    author={"Brian Christan"}
-                    price={"$50"}
-                    textbookSelected={textbookSelected}
-                    setTextbookSelected={setTextbookSelected}
-                />
-
-                <BookCard
-                    image={TextbookImage}
-                    title={"Structures or Why Things Don't Fall Down"}
-                    author={"Brian Christan"}
-                    price={"$50"}
-                    textbookSelected={textbookSelected}
-                    setTextbookSelected={setTextbookSelected}
-                />
+            <div className="my-dashboard__inner inner">
+                <div className="book-card__container">
+                    {showBookCards()}
+                </div>
             </div>
-          </div>
           : 
             <div className="empty-state-div">
                 <div className="empty-state-title">No bookmarks yet</div>

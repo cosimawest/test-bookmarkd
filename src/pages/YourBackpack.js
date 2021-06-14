@@ -81,7 +81,7 @@ function YourBackpack() {
                             <div style={{paddingRight:"4rem"}}>Total:</div>
                             <div>$85.99</div>
                         </div>
-                        <button className="btn-confined">Checkout with STRIPE</button>
+                        <a href="/checkout"><button className="btn-confined">Checkout with STRIPE</button></a>
 
                     </div>
 

@@ -227,6 +227,15 @@ div::-webkit-scrollbar {
   align-items: center;
 }
 
+.disabled {
+  background-color: #c4c4c4;
+  color: #6C6C6C;
+}
+
+.disabled img {
+  filter: grayscale(1) brightness(1.5);
+}
+
 .empty-state-title {
   color: #6C6C6C;
   margin: 0 auto 4%;
